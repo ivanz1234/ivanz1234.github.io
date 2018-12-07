@@ -1,67 +1,158 @@
 # Site settings
-title: Your Title
-author: author
-email:
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+title: Project Pages
+description: "An Integrated Scientific Blogging Template"
+url: "https://projectpages.github.io"
 
-# Site URL NOTE: if your site is base on subdir /blog you should change base to "/blog"
-domain: "http://yourdomain.github.io" # the domain URL for your site
-base: ""  # the relative path that different with domain so you can test locally
 
-# Source URL NOTE: end with / cause it's [URL + FILE]
-w3c_url: "/w3c/"  # the base url of css js and images
-images_url: "/w3c/images/" # the base url of post images
-postfile: "/db/Postfile" # the Database
-sitefile: "/db/Sitefile" # the Database
 
-# pagination
-page_size: 3
 
-# comment settings
-duoshuo_short_name: "sbys" # the user of user.domain.com
-duoshuo_user_uid: "6324572809590735618" # the admin user uid
-duoshuo_user_name: "xk" # the admin user name
-duoshuo_max_depth: "2"  # the max_depth setting in duoshuo comments
+# Secondary Parameters
+baseurl: "/project-pages"
+header-img: img/home-bg.jpg
+headercolor: "#FFFFFF"
+logo: /project-pages/img/logos/Project-Pages-New-Logo-Inverted.png
 
-# 3rd URL
-duoshuo_url: "/w3c/duoshuo/embed.min.js" # the local duoshuo comment plugin, you can change it to remote "http://static.duoshuo.com/"
-jquery_url: "http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js" # use cdn
-baiduTemplate_url: "/w3c/js/baiduTemplate.js" #use local
-google_analytics_id: ""
-baidu_tongji_id: ""
+# Tertiary Parameters
+github_username:  projectpages
+project_repository: project-pages
+disqus_shortname: project-pages
+g-analytics: UA-75881392-1
+altmetric: true
 
-# Build Settings
-excerpt_separator: "\n\n" # you can specify your own separator here, default is "\n\n" String
-permalink: /:year/:month/:day/:title.html
-highlighter: rouge
+# Build settings
+gems: [jekyll-paginate]
 markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: true # a newline in markdown text would be changed to <br>
-gems:
-  - jemoji    # enable the github emoji
-version: 1.1.0
+highlighter: rouge
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
-# Following is got in Github Help With Configuring Jekyll
+# Jekyll Settings
 
-# Github Page Default Settings which you can override:
-# kramdown:
-#   input: GFM
-#   hard_wrap: false
-# gems:
-#   - jekyll-coffeescript
-#   - jekyll-paginate
+defaults:
+  -
+    scope:
+      path: "projects"
+      type: "pages"
+    values:
+      layout: "project"
+      header-img: "img/home-bg.jpg"
 
-# Github Page override the following settings which you cannot change:
-# lsi: false
-# safe: true
-# source: [your repo's top level directory]
-# incremental: false
-# highlighter: rouge
-# gist:
-#  noscript: false
-# kramdown:
-#  math_engine: mathjax
+# Prose Settings
+prose:
+  ignore: ['feed.xml', '/stl', '/ply', '/js', '/plugin', '/lib', '/projectors', '_layouts', '/_includes', 'Gruntfile.js', 'package.json', 'proselinks.jsonp', 'ppanchor.matin', '.gitignore', '/search', '/css', '/img', 'favicon.png','_data/*.json','LICENSES.md','README.md','colorscheme.scss','members.html','mentions.html','index.html']
+  siteurl: 'http://projectpages.github.io/project-pages/'
+  ispp: true
+  media: 'img'
+  metadata:
+    projects:
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          value: ""
+      - name: "description"
+        field:
+          element: "text"
+          label: "Description"
+          value: ""
+      - name: "category"
+        field:
+          element: "text"
+          label: "Project"
+          value: ""           
+    _posts:
+      - name: "subtitle"
+        field:
+          element: "text"
+          label: "Sub-Title (Short Description)"
+          value: ""
+      - name: "layout"
+        field:
+          element: "select"
+          label: "Choose Layout"
+          placeholder: "Layouts"
+          options:
+            - name: "Post"
+              value: "post"
+            - name: "Slide"
+              value: "slide"
+            - name: "Projector"
+              value: "projector"
+            - name: "Notebook"
+              value: "notebook"
+            - name: "Ply Surface"
+              value: "plysurface"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          value: ""
+      - name: "author"
+        field:
+          element: "text"
+          label: "Author"
+          value: ""
+      - name: "tags"
+        field:
+          element: "text"
+          label: "Tags (seperate with whitespace)"
+          value: ""
+      - name: "category"
+        field:
+          element: "text"
+          label: "Project"
+          value: ""    
+      - name: "horizontal"
+        field:
+          element: "hidden"
+          value: </section></section><section markdown="1" data-background="http://projectpages.github.io/project-pages/img/slidebackground.png"><section markdown="1">
+      - name: "vertical"
+        field:
+          element: "hidden"
+          value: </section><section markdown="1">
+      - name: "slideinit"
+        field:
+          element: "hidden"
+          value: <section markdown="1" data-background="http://projectpages.github.io/project-pages/img/slidebackground.png"><section markdown="1">
+      - name: "theme"
+        field:
+          element: "select"
+          label: "Theme (Slide)"
+          placeholder: "Theme (Slide)"
+          options:
+            - name: "Beige"
+              value: "beige"
+            - name: "Blood"
+              value: "blood"
+            - name: "Moon"
+              value: "moon"          
+            - name: "Night"
+              value: "night"
+            - name: "Sky"
+              value: "sky"
+            - name: "Solarized"
+              value: "solarized"             
+      - name: "trans"
+        field:
+          element: "select"
+          label: "Transition (Slide)"
+          placeholder: "Transition (Slide)"
+          options:
+            - name: "Cube"
+              value: "cube"
+            - name: "Page"
+              value: "page"
+            - name: "Concave"
+              value: "concave"          
+            - name: "Linear"
+              value: "linear"
+            - name: "Fade"
+              value: "fade"
+            - name: "None"
+              value: "none"             
+      - name: "visualworkflow"
+        field:
+          element: "checkbox"
+          label: "Visual Workflow Chart (Some Layouts)"
+          value: "true"
