@@ -1,5 +1,8 @@
 _site
 node_modules
-Gemfile.lock
-.sass-cache
-*.gem
+npm-debug.log
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+*.sh
+.vscode
